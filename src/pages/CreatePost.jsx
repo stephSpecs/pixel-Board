@@ -24,7 +24,7 @@ const CreatePost = () => {
                 <form onSubmit={handleSubmit}>
                     <input value={image} placeholder="Upload Image" onChange={(e) => setImage(e.target.value)} />
                     <input value={title} placeholder="Title" onChange={(e) => setTitle(e.target.value)} />
-                    <textarea value={content} placeholder="write a caption..." onChange={(e) => setContent(e.target.value)}></textarea>
+                    <textarea value={content} placeholder="Write a caption..." onChange={(e) => setContent(e.target.value)}></textarea>
                     <button className="create-post-button">Submit</button>
                 </form>
             </div>

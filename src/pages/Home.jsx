@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import { supabase } from '../supabaseClient'
 import thumbsUp from '../assets/thumbs-up.svg'
+import postImage from '../assets/video-game-header.png'
 import { useEffect, useState } from 'react'
 import '../App.css'
 
@@ -18,14 +19,15 @@ const Home = ({ searchQuery, orderBy }) => {
 
     return(
         <div className="home-container">
+            <header className="post-image-header">
+                <img className="post-image" src={postImage} />
+            </header> 
             <h1>Pixel Board</h1>
-
                 <div className="home-posts-container">
                     {post.filter((post) => post.title.toLowerCase().includes(searchQuery.toLowerCase())).map((post) => (
                         <Link to={`/post/${post.id}`} key={post.id}>
                             <div className="post-card">
                                 <h3>{post.title}</h3>
-                                <img className="home-image"src={post.image_url} alt={post.title} />
                                 <p><img className="thumbsUp" src={thumbsUp} alt="upvotes" /> {post.upvotes}</p>
                                 <p>{new Date(post.created_at).toLocaleString('en-US', { 
                                     timeZone: 'America/New_York',
